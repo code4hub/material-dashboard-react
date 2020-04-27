@@ -41,7 +41,10 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+  const state = props.location.state;
+
+  console.log({ state });
   const classes = useStyles();
   return (
     <div>
