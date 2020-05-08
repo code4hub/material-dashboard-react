@@ -23,7 +23,10 @@ let ps;
 const switchRoutes = (
   <Switch>
     {routes.map((prop, key) => {
+      console.log(prop)
+      
       if (prop.layout === "/admin") {
+        if (prop.invisible) return null;
         return (
           <Route
             path={prop.layout + prop.path}
@@ -96,7 +99,7 @@ export default function Admin({ ...rest }) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Sixdime App"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -119,14 +122,14 @@ export default function Admin({ ...rest }) {
           <div className={classes.map}>{switchRoutes}</div>
         )}
         {getRoute() ? <Footer /> : null}
-        <FixedPlugin
+        {/* <FixedPlugin
           handleImageClick={handleImageClick}
           handleColorClick={handleColorClick}
           bgColor={color}
           bgImage={image}
           handleFixedClick={handleFixedClick}
           fixedClasses={fixedClasses}
-        />
+        /> */}
       </div>
     </div>
   );
