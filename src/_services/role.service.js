@@ -18,6 +18,7 @@ async function getAll(){
     };
 
     const response = await fetch("https://yx55t9np23.execute-api.us-east-1.amazonaws.com/v1/roles/", requestOptions);
+    
     return handleResponse(response);
     // const response = await fetch("https://reqres.in/api/users", requestOptions);
     // let res = handleResponse(response);

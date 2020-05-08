@@ -1,7 +1,12 @@
 import {roleConstants} from "../_constants";
 
-export function roles(state = {}, action){
-    console.log('Innnn',{actions})
+const initialState = {
+	loading: false,
+	roles: [],
+	error: null
+}
+
+export function roles(state = initialState, action){
     switch(action.type){
         case roleConstants.GET_ALL_ROLES_REQUEST:
             return {
@@ -9,7 +14,7 @@ export function roles(state = {}, action){
             };
         case roleConstants.GET_ALL_ROLES_SUCCESS:
             return {
-                items: action.roles
+                roles: action.roles && action.roles.params
             };
         case roleConstants.GET_ALL_ROLES_FAILURE:
             return {
