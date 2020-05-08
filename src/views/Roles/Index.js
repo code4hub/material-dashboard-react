@@ -17,11 +17,11 @@ function RolePage(){
 
     const roles = useSelector(state => state.roles);
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
         dispatch(roleActions.getAll());
     }, []);
-
+    console.log("Roles Page", roles)
     return(
         <div>
             <GridContainer>

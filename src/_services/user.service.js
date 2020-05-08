@@ -10,7 +10,7 @@ export const userService = {
     delete: _delete
 };
 
-function login(username, password) {
+async function login(username, password) {
     // console.log("User service API")
     const requestOptions = {
         method: 'POST',
@@ -18,14 +18,11 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
     // console.log(username, password)
-    return fetch("https://hyc8sdn98i.execute-api.us-east-1.amazonaws.com/v1/", requestOptions)
-        .then(handleResponse)
-        .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-
-            return user;
-        });
+    const response = await fetch("https://hyc8sdn98i.execute-api.us-east-1.amazonaws.com/v1/", requestOptions);
+    const user = await handleResponse(response);
+    // store user details and jwt token in local storage to keep user logged in between page refreshes
+    localStorage.setItem('user', JSON.stringify(user));
+    return user;
 }
 
 function logout() {

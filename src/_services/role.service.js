@@ -11,13 +11,18 @@ export const roleService = {
 async function getAll(){
     const requestOptions = {
         method: 'POST',
-        headers: authHeader(),
+        headers: { 
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify({"action": "get_all"})
     };
 
-    const response = await fetch("https://yx55t9np23.execute-api.us-east-1.amazonaws.com/Beta/roles/", requestOptions);
-    console.log("Get All Roles", response)
+    const response = await fetch("https://yx55t9np23.execute-api.us-east-1.amazonaws.com/v1/roles/", requestOptions);
     return handleResponse(response);
+    // const response = await fetch("https://reqres.in/api/users", requestOptions);
+    // let res = handleResponse(response);
+    // console.log("response from service", res)
+    // return res
 }
 
 async function getById(id){
@@ -43,7 +48,7 @@ function handleResponse(response) {
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
         }
-        console.log(data)
+        // console.log(data)
         return data;
     });
 }

@@ -18,7 +18,7 @@ function login(username, password) {
             .then(
                 user => { 
                     dispatch(success(user)); //Call the Login Success reducer
-                    console.log("user data response", user)
+                    // console.log("user data response", user)
                     if(user.error){
                         dispatch(failure(user)); //Call the Login Failure reducer
                         dispatch(alertActions.error(user.message))

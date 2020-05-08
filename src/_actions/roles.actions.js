@@ -6,22 +6,22 @@ import {alertActions} from ".";
 export const roleActions = {
     getAll,
     // getById,
-    // create,
+    create,
     // update,
     // delete: _delete
 }
 
 function getAll(){
     return dispatch => {
-        dispatch(request)
+        dispatch({ type: roleConstants.GET_ALL_ROLES_REQUEST })
         roleService.getAll()
             .then(
-                // roles = dispatch(success(roles)),
-                // error = dispatch(failure(error))
-            )
-    }
+                roles => dispatch( { type: roleConstants.GET_ALL_ROLES_SUCCESS, roles }),
+                error => dispatch( { type: roleConstants.GET_ALL_ROLES_FAILURE, error })
+            );
+    };
+}
 
-    function request() { return { type: roleConstants.GET_ALL_ROLES_REQUEST } }
-    function success(roles) { return { type: roleConstants.GET_ALL_ROLES_SUCESS, roles } }
-    function failure(error) { return { type: roleConstants.GET_ALL_ROLES_FAILURE, error } }
+function create(){
+    return null;
 }

@@ -27,7 +27,7 @@ function LoginPage() {
     const dispatch = useDispatch();
 
     const alert = useSelector(state => state.alert);
-    console.log("alert message", alert)
+    // console.log("alert message", alert)
     useEffect(() => {
         history.listen((location, action) => {
             // clear alert on location change

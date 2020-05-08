@@ -31,6 +31,7 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 import Organisation from "views/Organisation/Index.js";
 import AddOrganisation from "views/Organisation/Add.js";
 import RolePage from "views/Roles/Index";
+import CreateRole from "views/Roles/Create";
 // import UserProfile from "views/UserProfile/UserProfile.js";
 // import TableList from "views/TableList/TableList.js";
 // import Typography from "views/Typography/Typography.js";
@@ -55,6 +56,13 @@ const dashboardRoutes = [
     name: "Roles",
     icon: AccountBoxIcon,
     component: RolePage,
+    layout: "/admin"
+  },
+  {
+    path: "/roles/add",
+    name: "Add Roles",
+    icon: AccountBoxIcon,
+    component: CreateRole,
     layout: "/admin"
   },
   // {
